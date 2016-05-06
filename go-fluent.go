@@ -1,6 +1,5 @@
 package go_fluent
 
-
 type FluentRecord struct {
 	Tag       string
 	Timestamp uint64
@@ -20,3 +19,8 @@ type FluentRecordSet struct {
 type RecordPacker interface {
 	Pack(record FluentRecord) ([]byte, error)
 }
+
+type Port interface {
+	Emit(recordSets []FluentRecordSet) error
+}
+
